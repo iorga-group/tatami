@@ -400,6 +400,8 @@
         <tatami.automatic.registration>false</tatami.automatic.registration>
         <tatami.metrics.graphite.host></tatami.metrics.graphite.host>
         <tatami.metrics.graphite.port>2003</tatami.metrics.graphite.port>
+        
+        <m2eclipse.wtp.contextRoot>/</m2eclipse.wtp.contextRoot>
 
         <!-- Configuration -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -783,6 +785,25 @@
             <artifactId>spring-security-web</artifactId>
             <version>${spring.security.version}</version>
         </dependency>
+        
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-cas</artifactId>
+            <version>${spring.security.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>cas-client-core</artifactId>
+                    <groupId>org.jasig.cas.client</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.jasig.cas.client</groupId>
+            <artifactId>cas-client-core</artifactId>
+            <version>3.3.0</version>
+            <scope>runtime</scope>
+        </dependency>
+
         <dependency>
             <groupId>rome</groupId>
             <artifactId>rome</artifactId>
